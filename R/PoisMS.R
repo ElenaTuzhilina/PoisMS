@@ -68,8 +68,8 @@ PoisMS = function(C, H, beta0 = max(log(C)), Theta0 = matrix(rnorm(ncol(H) * 3),
     diag(W) = 0
     W = W/max(W)
     Z = soa$Z
-    #WPCMS
-    wpcms = WPCMS(Z, H, W, beta, Theta, FALSE, eps_wpcms, maxiter, verbose_wpcms)
+    #WPCMS (beta = 0)
+    wpcms = WPCMS(Z, H, W, 0, Theta, FALSE, eps_wpcms, maxiter, verbose_wpcms)
     iter_total = iter_total + wpcms$iter
     #Line search
     find = PoisMS_rate(Theta, wpcms$X, X, beta, loss, C, H)

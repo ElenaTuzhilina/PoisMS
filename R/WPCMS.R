@@ -113,7 +113,7 @@ update_beta_WPCMS = function(X, Z, W){
 }
 
 gradient_step = function(S, G, rate){
-  G_plus = diag(colSums(G))
+  G_plus = diag(rowSums(G))
   return(S - rate * (G - G_plus))
 }
 
